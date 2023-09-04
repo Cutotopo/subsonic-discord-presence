@@ -1,0 +1,12 @@
+{
+  "subsonic": {
+    "url": "",
+    "username": "",
+    "password": "",
+    "queryInterval": 1000
+  },
+  "client": {
+    "clientName": "subsonic-discord-presence",
+    "clientVersion": "1.16.1"
+  }
+}

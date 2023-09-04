@@ -1,0 +1,20 @@
+{
+  "name": "subsonic-discord-presence",
+  "version": "1.0.0",
+  "description": "Discord Rich Presence for Subsonic",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Cutotopo",
+  "license": "GPL-2.0-only",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "discord-rich-presence": "^0.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cutotopo/subsonic-discord-presence.git"
+  },
+  "homepage": "https://github.com/cutotopo/subsonic-discord-presence#readme"
+}
