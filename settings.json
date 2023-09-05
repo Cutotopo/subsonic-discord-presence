@@ -3,7 +3,8 @@
     "url": "",
     "username": "",
     "password": "",
-    "queryInterval": 1000
+    "queryInterval": 1000,
+    "imagesUrl": ""
   },
   "client": {
     "clientName": "subsonic-discord-presence",

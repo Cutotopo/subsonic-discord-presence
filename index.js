@@ -18,15 +18,45 @@ let reads = 0;
 /* RPC client status */
 let connected = false;
 
-function setPresence(name, artist, server) {
+function getLargeImage(album, id, server) {
+  if (SETTINGS.subsonic.imagesUrl) {
+    return {
+      image: `${SETTINGS.subsonic.imagesUrl}${id}`,
+      text: album
+    };
+  } else {
+    return {
+      image: server,
+      text: server
+    };
+  }
+}
+
+function getSmallImage(server) {
+  if (SETTINGS.subsonic.imagesUrl) {
+    return {
+      image: server,
+      text: server
+    };
+  } else {
+    return {
+      image: 'play',
+      text: 'Playing'
+    };
+  }
+}
+
+function setPresence(name, artist, album, server, id) {
+  let largeImage = getLargeImage(album, id, server);
+  let smallImage = getSmallImage(server);
   rpc.updatePresence({
     state: `by ${artist}`,
     details: name,
-    largeImageKey: server,
-    largeImageText: server,
-    smallImageKey: 'play',
-    smallImageText: 'Playing',
-    instance: true,
+    largeImageKey: largeImage.image,
+    largeImageText: largeImage.text,
+    smallImageKey: smallImage.image,
+    smallImageText: smallImage.text,
+    instance: true
   });
   console.log(`[RPC] Updated presence: now playing "${name}" by "${artist}" on "${server}"`);
 }
@@ -51,7 +81,7 @@ function getData() {
         }
         if (reads == 5) {
           /* See comment above declaration of "reads" */
-          setPresence(response.title, response.artist, j['subsonic-response'].type);
+          setPresence(response.title, response.artist, response.album, j['subsonic-response'].type, response.id);
         }
         if (reads <= 5) {
           reads++;
