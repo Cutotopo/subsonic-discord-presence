@@ -1,5 +1,4 @@
 const CryptoJS = require('crypto-js');
-const rpc = require('discord-rich-presence')('1148377208864374884');
 const fs = require('fs');
 const path = require('path');
 
@@ -16,6 +15,7 @@ let response = {};
  * for it to not be an incorrectly detected skip, so we don't spam Discord's API and Discord is happy. */
 let reads = 0;
 /* RPC client status */
+let rpc;
 let connected = false;
 
 function getLargeImage(album, id, server) {
@@ -69,6 +69,7 @@ function getData() {
       if (nowPlaying.entry) {
         if (!connected) {
           console.log("[RPC] Connecting RPC...");
+          rpc = require('discord-rich-presence')('1148377208864374884');
           connected = true;
         }
         let entries = nowPlaying['entry'];
