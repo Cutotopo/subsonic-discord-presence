@@ -2,7 +2,7 @@
 Discord Rich Presence for Subsonic servers
 
 ## How to use
-Clone this repo, then fill in your Subsonic login information in `settings.json`. When you are done, run
+Clone this repo, copy `settings.example.json` to `settings.json` and fill in your Subsonic login information in the file. When you are done, run
 ```sh
 npm i
 ```
