@@ -9,7 +9,7 @@
   "author": "Cutotopo",
   "license": "GPL-2.0-only",
   "dependencies": {
-    "crypto-js": "^4.1.1",
+    "crypto-js": "^4.2.0",
     "discord-rich-presence": "^0.0.8"
   },
   "repository": {
